@@ -1,0 +1,9 @@
+.img-logo {
+  margin: 10px;
+  height: 40px;
+}
+
+.img-logo:focus {
+  outline: none;
+  border: none;
+}

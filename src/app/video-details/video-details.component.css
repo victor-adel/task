@@ -1,0 +1,18 @@
+.img {
+  height: 300px;
+  width: 100%;
+
+}
+
+.rate:focus {
+  outline: none;
+  border: none;
+}
+
+.filled {
+  color: red;
+}
+
+.notfilled {
+  color: #6e6a6a;
+}

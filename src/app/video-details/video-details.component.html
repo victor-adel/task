@@ -1,0 +1,31 @@
+<div class="d-flex flex-column" *ngFor="let video of videos ">
+  <img class="img" src="{{video.snippet.thumbnails.maxres.url}}">
+  <div class="d-flex p-2 m-1 justify-content-between border-bottom">
+    <span>{{video.snippet.title}}</span>
+    <div></div>
+    <button type="button" class="btn btn-outline-danger" (click)="addToFavourite()"> ADD TO FAVOURITE </button>
+  </div>
+  <div class="d-flex p-2 m-1 justify-content-between border-bottom">
+    <span>rate now
+      <ngb-rating class="rate" [(rate)]="currentRate" [max]="5" (rateChange)="somethingChanged($event)">
+        <ng-template let-fill="fill">
+          <span [class.filled]="fill === 100" [class.notfilled]="fill === 0">
+            &#9733;
+          </span>
+        </ng-template>
+      </ngb-rating>
+    </span>
+    <span> duration {{durationFormated}}</span>
+    <span>
+      <fa-icon [icon]="view"></fa-icon> {{video.statistics.viewCount}}
+      <fa-icon [icon]="like"></fa-icon> {{video.statistics.likeCount}}
+    </span>
+  </div>
+  <div class="d-flex flex-column p-2 m-1 justify-content-between border-bottom">
+    <span> published on {{video.snippet.publishedAt | date:'MMM d, y'}} </span>
+    <span>{{video.snippet.description}}</span>
+
+  </div>
+
+
+</div>

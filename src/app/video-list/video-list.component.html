@@ -1,0 +1,44 @@
+<div class="videolist">
+
+  <div class="navbar">
+    <div></div>
+    <form class="search-container">
+      <input type="text" name="tittle" [(ngModel)]="tittle" (ngModelChange)="search()" id="search-bar"
+        placeholder="search by video tittle">
+      <a href="#"><img class="search-icon"
+          src="http://www.endlessicons.com/wp-content/uploads/2012/12/search-icon.png"></a>
+    </form>
+
+  </div>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col"></th>
+        <th scope="col">
+          <fa-icon [icon]="sort"></fa-icon> &nbsp; tittle
+        </th>
+        <th scope="col">
+          <fa-icon [icon]="sort"></fa-icon> &nbsp; publish Date
+        </th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let video of videos | paginate: { itemsPerPage: 5, currentPage: p } ">
+      <tr class="table-row">
+
+        <td><img class=" img-thumbnail" src="{{video.snippet.thumbnails.default.url}}"> </td>
+        <td>{{video.snippet.title}}</td>
+        <td>{{video.snippet.publishTime | date:'dd/M/Y' }}</td>
+        <td> <button type="button" class="btn btn-outline-danger" [routerLink]="['details',video.id.videoId]"> details
+          </button></td>
+      </tr>
+      <tr>
+    </tbody>
+  </table>
+  <div style="  display: flex;
+  flex-direction: row-reverse;">
+    <pagination-controls (pageChange)="getRate( $event) "></pagination-controls>
+
+  </div>
+</div>
