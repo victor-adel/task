@@ -33,7 +33,6 @@ export class VideoDetailsComponent implements OnInit {
       this.id = prams.get('id');
     });
     this.youtube.getvideoDetails(this.id).subscribe((r: any) => {
-      console.log(r);
       this.videos = r.items;
       this.currentRate =
         localStorage.getItem(this.videos[0].snippet.title) || 0;
@@ -42,7 +41,6 @@ export class VideoDetailsComponent implements OnInit {
     });
   }
   somethingChanged(rate: any) {
-    console.log(this.currentRate);
     this.currentRate = rate;
     localStorage.setItem(this.videos[0].snippet.title, this.currentRate);
   }

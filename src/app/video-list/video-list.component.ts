@@ -17,7 +17,6 @@ export class VideoListComponent {
   constructor(private youtube: YoutubeService) {}
   ngOnInit() {
     this.youtube.getvideos().subscribe((r) => {
-      console.log(r);
       this.videos = r.items;
     });
   }
